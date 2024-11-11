@@ -14,7 +14,7 @@ const START_SERVER = () => {
 
   let PORT = 11118;
 
-  app.use(cors(corsOptions));
+  app.use(cors());
   app.use(express.json());
   app.use(bodyParser.json());
   app.use(
