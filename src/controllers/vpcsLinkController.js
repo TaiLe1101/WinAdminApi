@@ -82,4 +82,19 @@ export const vpcsLinkController = {
       next(error);
     }
   },
+
+  async updateIsActive(req, res, next) {
+    const { id } = req.params; // Lấy id từ params
+    const reqBody = req.body;
+    try {
+      const data = await vpcsLinkService.updateActiveLink(id, reqBody);
+      return res.status(StatusCodes.OK).json({
+        statusCode: StatusCodes.OK,
+        message: "Update isActive",
+        data,
+      });
+    } catch (error) {
+      next(error);
+    }
+  },
 };

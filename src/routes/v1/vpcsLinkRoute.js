@@ -11,6 +11,8 @@ Router.route("/redirect/:slug").get(vpcsLinkController.redirect);
 // Route để tạo VpcsLink mới
 Router.route("/create").post(vpcsLinkController.create);
 
+Router.route("/update-is-active/:id").put(vpcsLinkController.updateIsActive);
+
 Router.route("/:id").get(vpcsLinkController.show);
 
 // Route để cập nhật VpcsLink theo ID

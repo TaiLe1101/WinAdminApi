@@ -142,6 +142,28 @@ export const vpcsLinkService = {
       throw error;
     }
   },
+
+  async updateActiveLink(id, data) {
+    try {
+      // Xoá VpcsLink và các đối tượng con tương ứng
+      const result = await VpcsLink.findByIdAndUpdate(
+        id,
+        {
+          isActive: data.isActive,
+        },
+        {
+          new: true,
+        }
+      ); // Xoá VpcsLink
+
+      if (!result) {
+        throw new ApiError(400, "VpcsLink not found");
+      }
+      return result;
+    } catch (error) {
+      throw error;
+    }
+  },
 };
 
 // Hàm để lấy chỉ số child hiện tại từ VpcsLink
